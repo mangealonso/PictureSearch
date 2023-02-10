@@ -5,7 +5,8 @@
 }
 
 html{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
 }
 
 body{
@@ -16,6 +17,12 @@ body{
     padding: 10px;
 }
 
+button{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    padding: 5px;
+}
+
 header, main, section, footer{
     margin: 10px;
     padding: 10px;
@@ -23,6 +30,7 @@ header, main, section, footer{
 
 header{
     text-align: center;
+    color: white;
 }
 
 body{
@@ -45,7 +53,7 @@ main{
     display: grid;
     grid-template: 
     "a a a a"
-    "b b b b" / 1fr 1fr;
+    "b b b b" / 1fr 1fr 1fr 1fr;
 }
 
 #search{
