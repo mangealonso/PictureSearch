@@ -21,7 +21,7 @@ body{
     padding: 5px;
 }
 
-header, main, section, footer{
+header, main, section, #search, footer{
     margin: 10px;
     padding: 10px;
 }
@@ -50,21 +50,75 @@ header{
 main{
     display: grid;
     grid-template: 
-    "a a a a"
-    "b b b b" / 1fr 1fr 1fr 1fr;
+    "a"
+    "b";
 }
 
 #search{
     display: grid;
     grid-area: a;
-    grid-template-rows: 100px;
-    justify-items: center;
+    grid-template-rows: 25px;
+    justify-items: center;    
 }
 
-#pictures{
+#images{
     display: grid;
     grid-area: b;
-    grid-template-rows: 400px;
+    justify-items: center;
+    grid-template: 
+    "a b c d"
+    "e f g h"
+    "i j k l" / 1fr 1fr 1fr 1fr;
+}
+
+.image1{
+    display: grid;
+    grid-area: a;
+}
+
+.image2{
+    display: grid;
+    grid-area: b;
+}
+
+.image3{
+    display: grid;
+    grid-area: c;
+}
+
+.image4{
+    display: grid;
+    grid-area: d;
+}
+
+.image5{
+    display: grid;
+    grid-area: e;
+}
+
+.image6{
+    display: grid;
+    grid-area: f;
+}
+
+.image7{
+    display: grid;
+    grid-area: g;
+}
+
+.image8{
+    display: grid;
+    grid-area: h;
+}
+
+.image9{
+    display: grid;
+    grid-area: j;
+}
+
+.image10{
+    display: grid;
+    grid-area: k;
 }
 
 #footer{
