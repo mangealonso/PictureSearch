@@ -71,55 +71,16 @@ main{
     "i j k l" / 1fr 1fr 1fr 1fr;
 }
 
-.image1{
-    display: grid;
-    grid-area: a;
-}
-
-.image2{
-    display: grid;
-    grid-area: b;
-}
-
-.image3{
-    display: grid;
-    grid-area: c;
-}
-
-.image4{
-    display: grid;
-    grid-area: d;
-}
-
-.image5{
-    display: grid;
-    grid-area: e;
-}
-
-.image6{
-    display: grid;
-    grid-area: f;
-}
-
-.image7{
-    display: grid;
-    grid-area: g;
-}
-
-.image8{
-    display: grid;
-    grid-area: h;
-}
-
-.image9{
-    display: grid;
-    grid-area: j;
-}
-
-.image10{
-    display: grid;
-    grid-area: k;
-}
+.image1{ grid-area: a; }
+.image2{ grid-area: b; }
+.image3{ grid-area: c; }
+.image4{ grid-area: d; }
+.image5{ grid-area: e; }
+.image6{ grid-area: f; }
+.image7{ grid-area: g; }
+.image8{ grid-area: h; }
+.image9{ grid-area: j; }
+.image10{ grid-area: k; }
 
 #footer{
     display:grid;
