@@ -33,13 +33,36 @@ form.onsubmit = async event => {
     }; */
 
     // Har nedanstående kod bara för att se vad som händer efter att fråga skickats via API
-    console.log(json);
+    console.log(json.hits[0].previewURL);
 
     // Loop with picture, user and tags for 10 objects to follow beneath this line:
     
     // Clear the inputs
     /* form.word.value = '';
     form.color.value = ''; */
+
+     // https://dev.to/satvik/how-to-fetch-images-from-and-api-5h8h - lite källa, som jag ändå fick ändra om allt efteråt.
+     const pics = document.querySelectorAll(".image");
+
+     for (i = 0; i < 10; i++) {
+         
+         let imageFromPUrl = json.hits[i].previewURL;
+         let imageEl = document.createElement("img");
+          imageEl.setAttribute("src", imageFromPUrl); 
+ //         imageEl.classList.add("showcase");
+         let currentImg = "#image" + i;
+          let pic = document.querySelector(currentImg);
+ // window.location = imageFromPUrl;
+         
+ //flera av dessa här nedanför är helt felaktiga och meningslösa men jag orkar inte fixa det just nu.
+         pics[i].setAttribute("src", imageFromPUrl); //tror att det är den här som gjorde att det till slut funkade.
+         pics[i].currentImg = imageFromPUrl; 
+         pics[i].append(imageEl);
+         pic.appendChild(imageEl);
+         pic = imageEl;
+         //pics.appendChild(imageEl);
+     }
+
 };
 
 //Things to be fixed and random thoughts:
