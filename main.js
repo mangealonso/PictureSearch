@@ -1,6 +1,6 @@
 // Find the element
 let form = document.querySelector('form');
-
+let totalHits;
 
 form.onsubmit = async event => {
     // Prevent the default "reload page" behavior
@@ -18,6 +18,11 @@ form.onsubmit = async event => {
    
     let response = await fetch(url);
     let json = await response.json();
+    totalHits = json.totalHits;
+
+    /* if(totalHits < 11){
+        nextPage === 
+    } */
 
     // Har nedanstående kod bara för att se vad som händer efter att fråga skickats via API
     console.log(json);
