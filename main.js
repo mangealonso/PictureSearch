@@ -2,6 +2,14 @@
 let form = document.querySelector('form');
 let totalHits;
 
+/* function disableButton(button){
+    document.querySelector(button).disabled = true;
+}
+
+function enableButton(button){
+    document.querySelector(button).disabled = false;
+} */
+
 form.onsubmit = async event => {
     // Prevent the default "reload page" behavior
     event.preventDefault();
@@ -21,8 +29,8 @@ form.onsubmit = async event => {
     totalHits = json.totalHits;
 
     /* if(totalHits < 11){
-        nextPage === 
-    } */
+        disableButton("nextPage")
+    }; */
 
     // Har nedanstående kod bara för att se vad som händer efter att fråga skickats via API
     console.log(json);
