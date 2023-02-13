@@ -11,6 +11,11 @@ form.onsubmit = async event => {
     let chosenColor = form.color.value;
 
     let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
+
+    if (chosenColor === "Any color") {
+        url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ searchWord +' &image_type=photo&per_page=200';
+    }
+   
     let response = await fetch(url);
     let json = await response.json();
 
