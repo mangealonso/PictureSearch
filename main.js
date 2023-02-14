@@ -3,6 +3,7 @@ let form = document.querySelector('form');
 let totalHits;
 let searchWord;
 let chosenColor;
+let counter = 0; 
 
 /* function disableButton(button){
     document.querySelector(button).disabled = true;
@@ -50,26 +51,29 @@ form.onsubmit = async event => {
      // https://dev.to/satvik/how-to-fetch-images-from-and-api-5h8h - lite källa, som jag ändå fick ändra om allt efteråt.
      const pics = document.querySelectorAll(".image");
 
+     function firstQuery () {
+
      for (i = 0; i < 10; i++) {
          
          let imageFromPUrl = json.hits[i].webformatURL;
-         let imageEl = document.createElement("img"); //ev ta bort
-         imageEl.setAttribute("src", imageFromPUrl);  //ev tabort
+        //  let imageEl = document.createElement("img"); //ev ta bort
+        //  imageEl.setAttribute("src", imageFromPUrl);  //ev tabort
          let currentImg = "#image" + i;
          let pic = document.querySelector(currentImg);
          
- //flera av dessa här nedanför är helt felaktiga och meningslösa
          pics[i].setAttribute("src", imageFromPUrl); //tror att det är den här som gjorde att det till slut funkade.
-        //  pics[i].currentImg = imageFromPUrl; 
-        //  pics[i].append(imageEl);
-        //  pic.appendChild(imageEl);
-        //  pic = imageEl;
      }
 
+     counter++;
+    }
+
+    firstQuery();
+
+    };
 
      let nextBtn = document.querySelector("#nextPage");
      let previousBtn = document.querySelector("#previousPage");
-     let counter = 0; 
+     
 
      nextBtn.onclick = event => {
         counter++
@@ -82,7 +86,7 @@ form.onsubmit = async event => {
      
 
 
-};
+
 
 //Things to be fixed and random thoughts:
 //read totalHits and store in a variable
