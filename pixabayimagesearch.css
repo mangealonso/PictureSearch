@@ -72,11 +72,11 @@ main{
     "a b c d"
     "e f g h"
     "i j k l" / 1fr 1fr 1fr 1fr;
+    grid-gap: 1.5rem;
 }
 
 img{
     width: 100%;
-    padding: 10px;
 }
 
 .image1{ grid-area: a; }
