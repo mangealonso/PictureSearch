@@ -3,7 +3,7 @@ let form = document.querySelector('form');
 let totalHits;
 let searchWord;
 let chosenColor;
-let counter = 0; 
+let counter = 0;
 
 /* function disableButton(button){
     document.querySelector(button).disabled = true;
@@ -22,13 +22,13 @@ form.onsubmit = async event => {
     chosenColor = form.color.value;
 
     //let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
-    
-    let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ searchWord +'&colors=' + chosenColor + '&image_type=photo&per_page=10&page'
+
+    let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q=' + searchWord + '&colors=' + chosenColor + '&image_type=photo&per_page=10&page'
 
     if (chosenColor === "any color") {
-        url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ searchWord +' &image_type=photo&per_page=10&page';
+        url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q=' + searchWord + ' &image_type=photo&per_page=10&page';
     }
-   
+
     let response = await fetch(url);
     let json = await response.json();
     totalHits = json.totalHits;
@@ -43,47 +43,105 @@ form.onsubmit = async event => {
     console.log(json.hits[0].webformatURL);
 
     // Loop with picture, user and tags for 10 objects to follow beneath this line:
-    
+
     // Clear the inputs
     /* form.word.value = '';
     form.color.value = ''; */
 
-     // https://dev.to/satvik/how-to-fetch-images-from-and-api-5h8h - lite källa, som jag ändå fick ändra om allt efteråt.
-     const pics = document.querySelectorAll(".image");
+    // https://dev.to/satvik/how-to-fetch-images-from-and-api-5h8h - lite källa, som jag ändå fick ändra om allt efteråt.
+    const pics = document.querySelectorAll(".image");
 
-     function firstQuery () {
+    function firstQuery() {
 
-     for (i = 0; i < 10; i++) {
-         
-         let imageFromPUrl = json.hits[i].webformatURL;
-        //  let imageEl = document.createElement("img"); //ev ta bort
-        //  imageEl.setAttribute("src", imageFromPUrl);  //ev tabort
-         let currentImg = "#image" + i;
-         let pic = document.querySelector(currentImg);
-         
-         pics[i].setAttribute("src", imageFromPUrl); //tror att det är den här som gjorde att det till slut funkade.
-     }
+        for (i = 0; i < 10; i++) {
 
-     counter++;
+            let imageFromPUrl = json.hits[i].webformatURL;
+            //  let imageEl = document.createElement("img"); //ev ta bort
+            //  imageEl.setAttribute("src", imageFromPUrl);  //ev tabort
+            let currentImg = "#image" + i;
+            let pic = document.querySelector(currentImg);
+
+            pics[i].setAttribute("src", imageFromPUrl); //tror att det är den här som gjorde att det till slut funkade.
+        }
+
+        counter++;
     }
 
-    firstQuery();
+};
 
-    };
+firstQuery();
 
-     let nextBtn = document.querySelector("#nextPage");
-     let previousBtn = document.querySelector("#previousPage");
-     
+function nextQuery() {
 
-     nextBtn.onclick = event => {
-        counter++
-     }
+    //ska det vara button.onclick här typ? 
 
-     previousBtn.onclick = event => {
-        counter--; 
-     }
-     
-     
+    form.onsubmit = async event => {
+        // Prevent the default "reload page" behavior
+        event.preventDefault();
+
+        // Get the values entered by the user
+        searchWord = form.word.value;
+        chosenColor = form.color.value;
+
+        //let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
+
+        let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q=' + searchWord + '&colors=' + chosenColor + '&image_type=photo&per_page=10&page=' + (counter + 1);
+
+        if (chosenColor === "any color") {
+            url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q=' + searchWord + ' &image_type=photo&per_page=10&page=' + (counter + 1);
+        }
+
+        let response = await fetch(url);
+        let json = await response.json();
+        totalHits = json.totalHits;
+
+        pageButtons.hidden = false;
+
+        /* if(totalHits < 11){
+            disableButton("nextPage")
+        }; */
+
+        // Har nedanstående kod bara för att se vad som händer efter att fråga skickats via API
+        console.log(json.hits[0].webformatURL);
+
+        // Loop with picture, user and tags for 10 objects to follow beneath this line:
+
+        // Clear the inputs
+        /* form.word.value = '';
+        form.color.value = ''; */
+
+        // https://dev.to/satvik/how-to-fetch-images-from-and-api-5h8h - lite källa, som jag ändå fick ändra om allt efteråt.
+        const pics = document.querySelectorAll(".image");
+
+            for (i = 0; i < 10; i++) {
+
+                let imageFromPUrl = json.hits[i].webformatURL;
+                //  let imageEl = document.createElement("img"); //ev ta bort
+                //  imageEl.setAttribute("src", imageFromPUrl);  //ev tabort
+                let currentImg = "#image" + i;
+                let pic = document.querySelector(currentImg);
+
+                pics[i].setAttribute("src", imageFromPUrl); //tror att det är den här som gjorde att det till slut funkade.
+            }
+
+        counter++;
+    }
+
+}
+
+let nextBtn = document.querySelector("#nextPage");
+let previousBtn = document.querySelector("#previousPage");
+
+
+nextBtn.onclick = event => {
+    counter++
+}
+
+previousBtn.onclick = event => {
+    counter--;
+}
+
+
 
 
 
@@ -97,10 +155,10 @@ form.onsubmit = async event => {
 //when nextPage-button has been clicked, enable previousPage-button and withdraw 10 from totalHits
 //if totalhits < 10, disable nextPage-button
 
-function previousPage(){
+function previousPage() {
 
 }
 
-function nextPage(){
+function nextPage() {
 
 }
