@@ -2,6 +2,8 @@
 let form = document.querySelector('form');
 let popup = document.querySelector('#popup');
 let totalHits;
+let searchWord;
+let chosenColor;
 
 /* function disableButton(button){
     document.querySelector(button).disabled = true;
@@ -16,8 +18,8 @@ form.onsubmit = async event => {
     event.preventDefault();
 
     // Get the values entered by the user
-    let searchWord = form.word.value;
-    let chosenColor = form.color.value;
+    searchWord = form.word.value;
+    chosenColor = form.color.value;
 
     let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
 
@@ -55,13 +57,29 @@ form.onsubmit = async event => {
          let currentImg = "#image" + i;
          let pic = document.querySelector(currentImg);
          
- //flera av dessa här nedanför är helt felaktiga och meningslösa men jag orkar inte fixa det just nu.
+ //flera av dessa här nedanför är helt felaktiga och meningslösa
          pics[i].setAttribute("src", imageFromPUrl); //tror att det är den här som gjorde att det till slut funkade.
         //  pics[i].currentImg = imageFromPUrl; 
         //  pics[i].append(imageEl);
         //  pic.appendChild(imageEl);
         //  pic = imageEl;
      }
+
+
+     let nextBtn = document.querySelector("#nextPage");
+     let previousBtn = document.querySelector("#previousPage");
+     let counter = 0; 
+
+     nextBtn.onclick = event => {
+        counter++
+     }
+
+     previousBtn.onclick = event => {
+        counter--; 
+     }
+     
+     
+
 
 };
 
