@@ -1,6 +1,5 @@
 // Find the element
 let form = document.querySelector('form');
-let popup = document.querySelector('#pageButtons');
 let totalHits;
 let searchWord;
 let chosenColor;
