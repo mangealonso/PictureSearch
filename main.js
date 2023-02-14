@@ -41,8 +41,6 @@ form.onsubmit = async event => {
 
     // Har nedanstående kod bara för att se vad som händer efter att fråga skickats via API
     console.log(json.hits[0].webformatURL);
-
-    // Loop with picture, user and tags for 10 objects to follow beneath this line:
     
     // Clear the inputs
     /* form.word.value = '';
@@ -83,19 +81,6 @@ form.onsubmit = async event => {
         counter--; 
      }
      
-     
-
-
-
-
-//Things to be fixed and random thoughts:
-//read totalHits and store in a variable
-//decide how many objects that should be read from Pixabay(max 200) and stored. 
-//also decided whether the 10 pictures to be displayed should be read from Pixabay 
-//or from the amount stored
-//read url, user and tags and store as objects in a list?!
-//when nextPage-button has been clicked, enable previousPage-button and withdraw 10 from totalHits
-//if totalhits < 10, disable nextPage-button
 
 function previousPage(){
 
