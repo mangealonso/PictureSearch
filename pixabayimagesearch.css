@@ -18,7 +18,7 @@ body{
     margin-right: auto;
 }
 
-#colorOptions, button, :placeholder-shown{
+#colorOptions, button, input, :placeholder-shown{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-style: italic;
     padding: 5px;
