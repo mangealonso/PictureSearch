@@ -51,11 +51,9 @@ form.onsubmit = async event => {
          
          let imageFromPUrl = json.hits[i].webformatURL;
          let imageEl = document.createElement("img");
-          imageEl.setAttribute("src", imageFromPUrl); 
- //         imageEl.classList.add("showcase");
+         imageEl.setAttribute("src", imageFromPUrl); 
          let currentImg = "#image" + i;
-          let pic = document.querySelector(currentImg);
- // window.location = imageFromPUrl;
+         let pic = document.querySelector(currentImg);
          
  //flera av dessa här nedanför är helt felaktiga och meningslösa men jag orkar inte fixa det just nu.
          pics[i].setAttribute("src", imageFromPUrl); //tror att det är den här som gjorde att det till slut funkade.
