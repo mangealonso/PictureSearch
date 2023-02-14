@@ -20,8 +20,8 @@ form.onsubmit = async event => {
     searchWord = form.word.value;
     chosenColor = form.color.value;
 
-    let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
-
+    //let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
+    let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ searchWord +'&colors=green&image_type=photo&per_page=200'
     if (chosenColor === "Any color") {
         url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ searchWord +' &image_type=photo&per_page=200';
     }
@@ -51,8 +51,8 @@ form.onsubmit = async event => {
      for (i = 0; i < 10; i++) {
          
          let imageFromPUrl = json.hits[i].webformatURL;
-         let imageEl = document.createElement("img");
-         imageEl.setAttribute("src", imageFromPUrl); 
+         let imageEl = document.createElement("img"); //ev ta bort
+         imageEl.setAttribute("src", imageFromPUrl);  //ev tabort
          let currentImg = "#image" + i;
          let pic = document.querySelector(currentImg);
          
