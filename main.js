@@ -20,12 +20,12 @@ form.onsubmit = async event => {
     searchWord = form.word.value;
     chosenColor = form.color.value;
 
-
-   // =kitten&colors=green&image_ty
     //let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
-    let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ searchWord +'&colors=' + chosenColor + '&image_type=photo&per_page=200'
-    if (chosenColor === "Any color") {
-        url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ searchWord +' &image_type=photo&per_page=200';
+    
+    let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ searchWord +'&colors=' + chosenColor + '&image_type=photo&per_page=10&page'
+
+    if (chosenColor === "any color") {
+        url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ searchWord +' &image_type=photo&per_page=10&page';
     }
    
     let response = await fetch(url);
