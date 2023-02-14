@@ -1,5 +1,6 @@
 // Find the element
 let form = document.querySelector('form');
+let popup = document.querySelector('#popup');
 let totalHits;
 
 /* function disableButton(button){
@@ -27,6 +28,8 @@ form.onsubmit = async event => {
     let response = await fetch(url);
     let json = await response.json();
     totalHits = json.totalHits;
+
+    popup.hidden = false;
 
     /* if(totalHits < 11){
         disableButton("nextPage")
