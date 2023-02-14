@@ -79,16 +79,16 @@ img{
     width: 100%;
 }
 
-.image1{ grid-area: a; }
-.image2{ grid-area: b; }
-.image3{ grid-area: c; }
-.image4{ grid-area: d; }
-.image5{ grid-area: e; }
-.image6{ grid-area: f; }
-.image7{ grid-area: g; }
-.image8{ grid-area: h; }
-.image9{ grid-area: j; }
-.image10{ grid-area: k; }
+#image0{ grid-area: a; }
+#image1{ grid-area: b; }
+#image2{ grid-area: c; }
+#image3{ grid-area: d; }
+#image4{ grid-area: e; }
+#image5{ grid-area: f; }
+#image6{ grid-area: g; }
+#image7{ grid-area: h; }
+#image8{ grid-area: j; }
+#image9{ grid-area: k; }
 
 #footer{
     display:grid;
