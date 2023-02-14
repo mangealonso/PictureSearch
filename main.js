@@ -33,7 +33,7 @@ form.onsubmit = async event => {
     }; */
 
     // Har nedanstående kod bara för att se vad som händer efter att fråga skickats via API
-    console.log(json.hits[0].previewURL);
+    console.log(json.hits[0].webformatURL);
 
     // Loop with picture, user and tags for 10 objects to follow beneath this line:
     
@@ -46,7 +46,7 @@ form.onsubmit = async event => {
 
      for (i = 0; i < 10; i++) {
          
-         let imageFromPUrl = json.hits[i].previewURL;
+         let imageFromPUrl = json.hits[i].webformatURL;
          let imageEl = document.createElement("img");
           imageEl.setAttribute("src", imageFromPUrl); 
  //         imageEl.classList.add("showcase");
