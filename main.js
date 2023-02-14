@@ -57,11 +57,10 @@ form.onsubmit = async event => {
          
  //flera av dessa här nedanför är helt felaktiga och meningslösa men jag orkar inte fixa det just nu.
          pics[i].setAttribute("src", imageFromPUrl); //tror att det är den här som gjorde att det till slut funkade.
-         pics[i].currentImg = imageFromPUrl; 
-         pics[i].append(imageEl);
-         pic.appendChild(imageEl);
-         pic = imageEl;
-         //pics.appendChild(imageEl);
+        //  pics[i].currentImg = imageFromPUrl; 
+        //  pics[i].append(imageEl);
+        //  pic.appendChild(imageEl);
+        //  pic = imageEl;
      }
 
 };
