@@ -4,15 +4,10 @@ let apiKey = '33514834-460ad1b7211981a50c737ee93';
 let totalHits = 0;
 let searchWord;
 let chosenColor;
-let counter = 0;
-
-/* function disableButton(button){
-    document.querySelector(button).disabled = true;
-}
-
-function enableButton(button){
-    document.querySelector(button).disabled = false;
-} */
+let pageNumber = 1;
+let url;
+let response;
+let json;
 
 form.onsubmit = async event => {
     // Prevent the default "reload page" behavior
@@ -24,14 +19,14 @@ form.onsubmit = async event => {
 
     //let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
 
-    let url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor + '&image_type=photo&per_page=10&page'
+    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor + '&image_type=photo&per_page=10&page'
 
     if (chosenColor === "any color") {
         url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&image_type=photo&per_page=10&page';
     }
 
-    let response = await fetch(url);
-    let json = await response.json();
+    response = await fetch(url);
+    json = await response.json();
     totalHits = json.totalHits;
 
     pageButtons.hidden = false;
@@ -50,10 +45,6 @@ form.onsubmit = async event => {
     showImages(json.hits);
     showTags(json.hits);
     showUser(json.hits);
-  
-
-    counter++;
-
 }
 
 /* function clearElement(element){
@@ -101,24 +92,62 @@ function showUser(jsonAnswer) {
        
 };
 
+/* function disableButton(button){
+    document.querySelector(button).disabled = true;
+}*/
+
+function enableButton(button){
+    document.querySelector(button).disabled = false;
+}
 
 let nextBtn = document.querySelector("#nextPage");
 let previousBtn = document.querySelector("#previousPage");
 
-nextBtn.onclick = event => {
-    counter++
+nextBtn.onclick = async event => {
+    pageNumber++
+
+    // Prevent the default "reload page" behavior
+    event.preventDefault();
+
+    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor 
+    + '&image_type=photo&per_page=10&page=' + pageNumber;
+
+    if (chosenColor === "any color") {
+        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord 
+        + '&image_type=photo&per_page=10&page&page=' + pageNumber;
+    }
+
+    response = await fetch(url);
+    json = await response.json();
+    totalHits = json.totalHits;
+
+    showImages(json.hits);
+    showTags(json.hits);
+    showUser(json.hits);
+
+    enableButton(previousBtn);
 }
 
-previousBtn.onclick = event => {
-    counter--;
+previousBtn.onclick = async event => {
+    pageNumber--;
+
+    // Prevent the default "reload page" behavior
+    event.preventDefault();
+
+    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor 
+    + '&image_type=photo&per_page=10&page=' + pageNumber;
+
+    if (chosenColor === "any color") {
+        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord 
+        + '&image_type=photo&per_page=10&page&page=' + pageNumber;
+    }
+
+    response = await fetch(url);
+    json = await response.json();
+    totalHits = json.totalHits;
+
+    showImages(json.hits);
+    showTags(json.hits);
+    showUser(json.hits);
 }
-
-function previousPage() {
-
-}
-
-function nextPage() {
-
-}
-
 }
