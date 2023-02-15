@@ -1,6 +1,6 @@
 // Find the element
 let form = document.querySelector('form');
-let totalHits;
+let totalHits = 0;
 let searchWord;
 let chosenColor;
 let counter = 0; 

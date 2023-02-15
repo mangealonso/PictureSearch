@@ -64,19 +64,30 @@ main{
     justify-items: center;    
 }
 
-#images{
+#gallery{
     display: grid;
     grid-area: b;
     justify-items: center;
     grid-template: 
     "a b c d"
+    "au bu cu du"
+    "at bt ct dt"
     "e f g h"
-    "i j k l" / 1fr 1fr 1fr 1fr;
+    "eu fu gu hu"
+    "et ft gt ht"
+    "i j k l"
+    "iu ju ku lu"
+    "it jt kt lt" / 1fr 1fr 1fr 1fr;
     grid-gap: 1.5rem;
 }
 
 img{
     width: 100%;
+}
+
+p{
+    color:white;
+    padding: 5px;
 }
 
 #image0{ grid-area: a; }
@@ -89,6 +100,28 @@ img{
 #image7{ grid-area: h; }
 #image8{ grid-area: j; }
 #image9{ grid-area: k; }
+
+#user0 { grid-area: au; }
+#user1 { grid-area: bu; }
+#user2 { grid-area: cu; }
+#user3 { grid-area: du; }
+#user4 { grid-area: eu; }
+#user5 { grid-area: fu; }
+#user6 { grid-area: gu; }
+#user7 { grid-area: hu; }
+#user8 { grid-area: ju; }
+#user9 { grid-area: ku; }
+
+#tag0 { grid-area: at; }
+#tag1 { grid-area: bt; }
+#tag2 { grid-area: ct; }
+#tag3 { grid-area: dt; }
+#tag4 { grid-area: et; }
+#tag5 { grid-area: ft; }
+#tag6 { grid-area: gt; }
+#tag7 { grid-area: ht; }
+#tag8 { grid-area: jt; }
+#tag9 { grid-area: kt; }
 
 #footer{
     display:grid;
