@@ -48,10 +48,11 @@ form.onsubmit = async event => {
     form.color.value = 'any color';
 
     showImages(json.hits);
-    //showUser(json.hits);
+    showUser(json.hits);
     //showTags(json.hits);
 
     counter++;
+
 }
 
 /* function clearElement(element){
@@ -79,11 +80,12 @@ function showUser(jsonAnswer) {
     const users = document.querySelectorAll(".user");
 
     for (i = 0; i < 10; i++) {
-        let userFromP = json.hits[i].user;
+        let userFromP = jsonAnswer[i].user;
         let currentUser = "#user" + i;
         let user = document.querySelector(currentUser);
-        users[i].setAttribute("src", userFromP);
-    }
+        //users[i].setAttribute("src", userFromP);
+        users[i].textContent = userFromP;
+       
 };
 
 function showTags(jsonAnswer) {
@@ -108,11 +110,12 @@ previousBtn.onclick = event => {
     counter--;
 }
 
-
 function previousPage() {
 
 }
 
 function nextPage() {
+
+}
 
 }
