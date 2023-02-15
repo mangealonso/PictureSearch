@@ -29,6 +29,18 @@ header, main, section, #search, footer{
     padding: 10px;
 }
 
+.tag {
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.user {
+    padding-top: 0px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: x-small;
+}
+
 header{
     text-align: center;
     color: white;
@@ -78,7 +90,7 @@ main{
     "i j k l"
     "it jt kt lt"
     "iu ju ku lu" / 1fr 1fr 1fr 1fr;
-    grid-gap: 1.5rem;
+    grid-gap: 0rem 1.5rem;
 }
 
 img{
