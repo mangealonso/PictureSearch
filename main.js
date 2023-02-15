@@ -94,11 +94,11 @@ function showUser(jsonAnswer) {
 
 /* function disableButton(button){
     document.querySelector(button).disabled = true;
-}
+}*/
 
 function enableButton(button){
     document.querySelector(button).disabled = false;
-} */
+}
 
 let nextBtn = document.querySelector("#nextPage");
 let previousBtn = document.querySelector("#previousPage");
@@ -124,20 +124,30 @@ nextBtn.onclick = async event => {
     showImages(json.hits);
     showTags(json.hits);
     showUser(json.hits);
+
+    enableButton(previousBtn);
 }
 
 previousBtn.onclick = async event => {
     pageNumber--;
 
+    // Prevent the default "reload page" behavior
+    event.preventDefault();
 
+    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor 
+    + '&image_type=photo&per_page=10&page=' + pageNumber;
+
+    if (chosenColor === "any color") {
+        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord 
+        + '&image_type=photo&per_page=10&page&page=' + pageNumber;
+    }
+
+    response = await fetch(url);
+    json = await response.json();
+    totalHits = json.totalHits;
+
+    showImages(json.hits);
+    showTags(json.hits);
+    showUser(json.hits);
 }
-
-function previousPage() {
-
-}
-
-function nextPage() {
-
-}
-
 }
