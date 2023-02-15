@@ -1,6 +1,7 @@
 // Find the element
 let form = document.querySelector('form');
 let apiKey = '33514834-460ad1b7211981a50c737ee93';
+let totalHits = 0;
 let remainingHits = 0;
 let searchWord;
 let chosenColor;
@@ -27,16 +28,13 @@ form.onsubmit = async event => {
 
     response = await fetch(url);
     json = await response.json();
-    remainingHits = json.totalHits;
+    totalHits = json.totalHits;
 
     pageButtons.hidden = false;
 
-    /* if(totalHits < 11){
-        disableButton("nextPage")
-    }; */
-
     // Har nedanstående kod bara för att se vad som händer efter att fråga skickats via API
-    console.log(json.hits[0].tags);
+    console.log(totalHits);
+    console.log(remainingHits);
 
     // Clear the inputs
     form.word.value = '';
@@ -46,9 +44,7 @@ form.onsubmit = async event => {
     showTags(json.hits);
     showUser(json.hits);
 
-    if(remainingHits <= 10){
-        disableButton(nextBtn);
-    }
+    remainingHits = totalHits;
 }
 
 /* function clearElement(element){
@@ -123,13 +119,14 @@ nextBtn.onclick = async event => {
 
     response = await fetch(url);
     json = await response.json();
-    totalHits = json.totalHits;
 
     showImages(json.hits);
     showTags(json.hits);
     showUser(json.hits);
 
     remainingHits-=10;
+
+    console.log(remainingHits);
     
     if(pageNumber > 1){
         enableButton(previousBtn);
@@ -156,13 +153,13 @@ previousBtn.onclick = async event => {
 
     response = await fetch(url);
     json = await response.json();
-    totalHits = json.totalHits;
 
     showImages(json.hits);
     showTags(json.hits);
     showUser(json.hits);
     
     remainingHits+=10;
+    console.log(remainingHits);
 
     if(pageNumber === 1){
         disableButton(previousBtn);
