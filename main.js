@@ -16,8 +16,8 @@ function enableButton(button){
 
 form.onsubmit = async event => {
     // Prevent the default "reload page" behavior
-    event.preventDefault();
-
+    event.preventDefault(); 
+    
     // Get the values entered by the user
     searchWord = form.word.value;
     chosenColor = form.color.value;
@@ -44,8 +44,8 @@ form.onsubmit = async event => {
     console.log(json.hits[0].tags);
 
     // Clear the inputs
-    /* form.word.value = '';
-    form.color.value = ''; */
+    form.word.value = '';
+    form.color.value = 'any color';
 
     showImages(json.hits);
     //showUser(json.hits);
@@ -53,6 +53,10 @@ form.onsubmit = async event => {
 
     counter++;
 }
+
+/* function clearElement(element){
+    element.replaceChildren();
+} */
 
 function showImages(jsonAnswer) {
 
