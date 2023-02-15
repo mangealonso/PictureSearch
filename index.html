@@ -11,13 +11,47 @@
     <link rel="stylesheet" href="pixabayimagesearch.css">
 </head>
 
+
+<!-- d. The <img> method with JavaScript and < noscript > as fallback
+Once again, we use the image-tag, but this time, we will provide a noscript-tag with the .png-image in it, in case JavaScript is deactivated.
+
+See demo
+
+The HTML code:
+
+<a href="#img_modernizr_js_remplacement_nojs">
+
+<noscript><img class="logo" src="https://www.noupe.comhttps://www.noupe.comhttps://www.noupe.comhttps://www.noupe.comlogo.png" alt="A sample SVG button." width="186" height="235" alt="Logo Geeks and the City" /></noscript>
+
+</a>
+The JavaScript code
+
+window.onload = function(){
+
+if(Modernizr.svg) {
+
+$('#img_modernizr_js_remplacement_nojs .header a').html('<img src="https://www.noupe.comhttps://www.noupe.comhttps://www.noupe.comhttps://www.noupe.comlogo.svg" width="186" height="235" alt="Logo Geeks and the City"/>');
+
+}
+
+else {
+
+$('#img_modernizr_js_remplacement_nojs .header a').html('<img src="https://www.noupe.comhttps://www.noupe.comhttps://www.noupe.comhttps://www.noupe.comlogo.png" width="186" height="235" alt="Logo Geeks and the City">');
+
+}
+
+}
+We detect SVG-support, swap the image for the SVG-logo if supported, and the PNG if not. -->
+<!-- https://www.jotform.com/blog/svg-clickable-71346/ -->
 <body>
 
     <header>
         <h1>Pixabay Image Search</h1>
-        <object id="logo" type="image/svg+xml" data="logo_square.svg">
-            <img src="logo_square.png" alt="pixabay_logo_square">
+        <a id="logo_ref" href="https://pixabay.com/">
+        <object id="logo" width="150" height="150" type="image/svg+xml" data="logo_square.svg">
+            <img src="logo_square.png" width="150" height="150" alt="pixabay_logo_square">
         </object>
+        </a>
     </header>
 
     <main>

@@ -29,6 +29,11 @@ header, main, section, #search, footer{
     padding: 10px;
 }
 
+#logo {
+    height: 25%;
+    width: 25%;
+}
+
 .tag {
     padding-bottom: 0;
     text-align: center;
@@ -60,7 +65,17 @@ footer{ grid-area: c; }
 
 header{
     display:grid;
+    grid-template: 
+    "aa bb cc" /  37% 26% 37%;
 }
+
+
+h1 {grid-area: bb;}
+#logo_ref {
+    
+    grid-area: cc; 
+  
+        }
 
 main{
     display: grid;
