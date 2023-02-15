@@ -92,12 +92,12 @@ function showUser(jsonAnswer) {
        
 };
 
-/* function disableButton(button){
-    document.querySelector(button).disabled = true;
-}*/
+function disableButton(button){
+    button.disabled = true;
+}
 
 function enableButton(button){
-    document.querySelector(button).disabled = false;
+    button.disabled = false;
 }
 
 let nextBtn = document.querySelector("#nextPage");
@@ -149,5 +149,9 @@ previousBtn.onclick = async event => {
     showImages(json.hits);
     showTags(json.hits);
     showUser(json.hits);
+
+    if(pageNumber === 1){
+        disableButton(previousBtn);
+    }
 }
 }
