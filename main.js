@@ -1,7 +1,7 @@
 // Find the element
 let form = document.querySelector('form');
 let apiKey = '33514834-460ad1b7211981a50c737ee93';
-let totalHits = 0;
+let remainingHits = 0;
 let searchWord;
 let chosenColor;
 let pageNumber = 1;
@@ -27,7 +27,7 @@ form.onsubmit = async event => {
 
     response = await fetch(url);
     json = await response.json();
-    totalHits = json.totalHits;
+    remainingHits = json.totalHits;
 
     pageButtons.hidden = false;
 
@@ -45,6 +45,10 @@ form.onsubmit = async event => {
     showImages(json.hits);
     showTags(json.hits);
     showUser(json.hits);
+
+    if(remainingHits <= 10){
+        disableButton(nextBtn);
+    }
 }
 
 /* function clearElement(element){
@@ -125,7 +129,15 @@ nextBtn.onclick = async event => {
     showTags(json.hits);
     showUser(json.hits);
 
-    enableButton(previousBtn);
+    remainingHits-=10;
+    
+    if(pageNumber > 1){
+        enableButton(previousBtn);
+    }
+    
+    if(remainingHits < 10){
+        disableButton(nextBtn);
+    }
 }
 
 previousBtn.onclick = async event => {
@@ -149,6 +161,8 @@ previousBtn.onclick = async event => {
     showImages(json.hits);
     showTags(json.hits);
     showUser(json.hits);
+    
+    remainingHits+=10;
 
     if(pageNumber === 1){
         disableButton(previousBtn);
