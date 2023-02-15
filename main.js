@@ -40,7 +40,7 @@ form.onsubmit = async event => {
     }; */
 
     // Har nedanstående kod bara för att se vad som händer efter att fråga skickats via API
-    console.log(json.hits[0].webformatURL);
+    console.log(json.hits[0].tags);
     
     // Clear the inputs
     /* form.word.value = '';
@@ -48,6 +48,8 @@ form.onsubmit = async event => {
 
      // https://dev.to/satvik/how-to-fetch-images-from-and-api-5h8h - lite källa, som jag ändå fick ändra om allt efteråt.
      const pics = document.querySelectorAll(".image");
+     /* const users = document.querySelectorAll(".user");
+     const tags = document.querySelectorAll(".tag"); */
 
      function firstQuery () {
 
@@ -60,6 +62,16 @@ form.onsubmit = async event => {
          let pic = document.querySelector(currentImg);
          
          pics[i].setAttribute("src", imageFromPUrl); //tror att det är den här som gjorde att det till slut funkade.
+
+         /* let userFromP = json.hits[i].user;
+         let currentUser = "#user" + i;
+         let user = document.querySelector(currentUser);
+         users[i].setAttribute("src", userFromP);
+         
+         let tagFromP = json.hits[i].tags;
+         let currentTag = "#tag" + i;
+         let t = document.querySelector(currentTag);
+         tags[i].setAttribute("src".tagFromP); */
      }
 
      counter++;
