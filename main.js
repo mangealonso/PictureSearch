@@ -57,9 +57,9 @@ form.onsubmit = async event => {
     function showImages(jsonAnswer){
         
      // https://dev.to/satvik/how-to-fetch-images-from-and-api-5h8h - lite källa, som jag ändå fick ändra om allt efteråt.
-     const pics = document.querySelectorAll(".image");     
+        const pics = document.querySelectorAll(".image");     
 
-     for (i = 0; i < 10; i++) {
+        for (i = 0; i < 10; i++) {
          
          let imageFromPUrl = jsonAnswer[i].webformatURL;
         //  let imageEl = document.createElement("img"); //ev ta bort
@@ -73,19 +73,23 @@ form.onsubmit = async event => {
      function showUser(jsonAnswer){
         const users = document.querySelectorAll(".user");
 
+        for(i = 0; i < 10; i++){
         let userFromP = json.hits[i].user;
          let currentUser = "#user" + i;
          let user = document.querySelector(currentUser);
          users[i].setAttribute("src", userFromP);
+        }
      };
 
      function showTags(jsonAnswer){
         const tags = document.querySelectorAll(".tag");
 
+        for(i = 0; i < 10; i++){
         let tagFromP = json.hits[i].tags;
          let currentTag = "#tag" + i;
          let t = document.querySelector(currentTag);
          tags[i].setAttribute("src".tagFromP);
+        }
      };
 
     };
