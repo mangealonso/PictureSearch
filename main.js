@@ -48,8 +48,9 @@ form.onsubmit = async event => {
     form.color.value = 'any color';
 
     showImages(json.hits);
+    showTags(json.hits);
     showUser(json.hits);
-    //showTags(json.hits);
+  
 
     counter++;
 
@@ -76,6 +77,18 @@ function showImages(jsonAnswer) {
     }
 };
 
+function showTags(jsonAnswer) {
+    const tags = document.querySelectorAll(".tag");
+
+    for (i = 0; i < 10; i++) {
+        let tagFromP = jsonAnswer[i].tags;
+        let currentTag = "#tag" + i;
+        let t = document.querySelector(currentTag);
+        tags[i].textContent = tagFromP;
+    }
+};
+
+
 function showUser(jsonAnswer) {
     const users = document.querySelectorAll(".user");
 
@@ -84,20 +97,10 @@ function showUser(jsonAnswer) {
         let currentUser = "#user" + i;
         let user = document.querySelector(currentUser);
         //users[i].setAttribute("src", userFromP);
-        users[i].textContent = userFromP;
+        users[i].textContent = "taken by: " + userFromP;
        
 };
 
-function showTags(jsonAnswer) {
-    const tags = document.querySelectorAll(".tag");
-
-    for (i = 0; i < 10; i++) {
-        let tagFromP = json.hits[i].tags;
-        let currentTag = "#tag" + i;
-        let t = document.querySelector(currentTag);
-        tags[i].setAttribute("src".tagFromP);
-    }
-};
 
 let nextBtn = document.querySelector("#nextPage");
 let previousBtn = document.querySelector("#previousPage");
