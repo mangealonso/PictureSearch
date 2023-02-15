@@ -65,7 +65,7 @@ function showImages(jsonAnswer) {
     // https://dev.to/satvik/how-to-fetch-images-from-and-api-5h8h - lite källa, som jag ändå fick ändra om allt efteråt.
     const pics = document.querySelectorAll(".image");
 
-    for (i = 0; i <= jsonAnswer.length; i++) {
+    for (i = 0; i < jsonAnswer.length; i++) {
 
         let imageFromPUrl = jsonAnswer[i].webformatURL;
         //  let imageEl = document.createElement("img"); //ev ta bort
@@ -80,7 +80,7 @@ function showImages(jsonAnswer) {
 function showTags(jsonAnswer) {
     const tags = document.querySelectorAll(".tag");
 
-    for (i = 0; i <= jsonAnswer.length; i++) {
+    for (i = 0; i < jsonAnswer.length; i++) {
         let tagFromP = jsonAnswer[i].tags;
         let currentTag = "#tag" + i;
         let t = document.querySelector(currentTag);
@@ -92,7 +92,7 @@ function showTags(jsonAnswer) {
 function showUser(jsonAnswer) {
     const users = document.querySelectorAll(".user");
 
-    for (i = 0; i <= jsonAnswer.length; i++) {
+    for (i = 0; i < jsonAnswer.length; i++) {
         let userFromP = jsonAnswer[i].user;
         let currentUser = "#user" + i;
         let user = document.querySelector(currentUser);
