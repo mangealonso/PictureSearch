@@ -156,3 +156,33 @@ p{
     display:grid;
     justify-items: center;
 }
+
+@media (max-width: 800px) {
+
+    #gallery {
+        display: grid;
+        grid-area: b;
+        grid-template: 
+        "a b"
+        "at bt"
+        "au bu"
+        "c d"
+        "ct dt"
+        "cu du"
+        "e f"
+        "et ft"
+        "eu fu"
+        "g h"
+        "gt ht"
+        "gu hu"
+        "j k"
+        "it kt"
+        "iu ku" /1fr, 1fr;
+        grid-gap: 0rem 1.5rem;
+        
+    }
+
+    
+
+
+}
