@@ -30,8 +30,9 @@ header, main, section, #search, footer{
 }
 
 #logo {
- height: 30px;
- width: 30px;
+ height: 50px;
+ width: 50px;
+ padding-top: 5px;
 }
 
 .tag {
@@ -47,7 +48,7 @@ header, main, section, #search, footer{
 }
 
 header{
-    /* text-align: center; */
+    text-align: center;
     color: white;
 }
 
@@ -66,14 +67,16 @@ footer{ grid-area: c; }
 header{
     display:grid;
     grid-template: 
-    "aa bb cc" /  37% 26% 37%;
+    "bb" 
+    "cc";
 }
 
 
 h1 {grid-area: bb;}
 a { 
     grid-area: cc; 
-    align-self: center;
+    /* align-self: center; */
+    padding-bottom: 3px;
 }
 
 main{
