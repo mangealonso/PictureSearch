@@ -176,10 +176,15 @@ p{
         "gu hu"
         "i j"
         "it jt"
+        "iu ju"  /1fr 1fr;
+        
+        
+        /* "i j"
+        "it jt"
         "iu ju" 
         "k l"
         "kt lt"
-        "ku lu" /1fr 1fr;
+        "ku lu"/1fr 1fr; */
         /* grid-gap: 0rem 1.5rem; */
         
     }
@@ -192,8 +197,8 @@ p{
 #image5{ grid-area: f; }
 #image6{ grid-area: g; }
 #image7{ grid-area: h; }
-#image8{ grid-area: j; }
-#image9{ grid-area: k; }
+#image8{ grid-area: i; }
+#image9{ grid-area: j; }
 
 #tag0 { grid-area: at; }
 #tag1 { grid-area: bt; }
@@ -203,8 +208,8 @@ p{
 #tag5 { grid-area: ft; }
 #tag6 { grid-area: gt; }
 #tag7 { grid-area: ht; }
-#tag8 { grid-area: jt; }
-#tag9 { grid-area: kt; }
+#tag8 { grid-area: it; }
+#tag9 { grid-area: jt; }
 
 #user0 { grid-area: au; }
 #user1 { grid-area: bu; }
@@ -214,10 +219,8 @@ p{
 #user5 { grid-area: fu; }
 #user6 { grid-area: gu; }
 #user7 { grid-area: hu; }
-#user8 { grid-area: ju; }
-#user9 { grid-area: ku; }
-
-    
+#user8 { grid-area: iu; }
+#user9 { grid-area: ju; }
 
 
 }
