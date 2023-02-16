@@ -11,6 +11,8 @@ let response;
 let json;
 let nextBtn = document.querySelector("#nextPage");
 let previousBtn = document.querySelector("#previousPage");
+let images = document.querySelectorAll('img');
+let usersAndTags = document.querySelectorAll('p');
 
 function disableButton(button) {
     button.disabled = true;
@@ -20,9 +22,33 @@ function enableButton(button) {
     button.disabled = false;
 }
 
+function clearImages(){
+    for (let i = 0; i <images.length; i++){
+        if (images[i].getAttribute('src') != ''){
+            images[i].src = '';
+        }
+    }
+}
+
+function clearUsersAndTags(){
+    for (let i = 0; i <usersAndTags.length; i++){
+        if (usersAndTags[i].textContent != ''){
+            usersAndTags[i].textContent = '';
+        }
+    }
+}
+
+/* function clear(element) {
+    element.replaceChildren();
+} */
+
 form.onsubmit = async event => {
     // Prevent the default "reload page" behavior
     event.preventDefault();
+
+    // Clearing any previous images, users and tags
+    clearImages();
+    clearUsersAndTags();
 
     // Get the values entered by the user
     searchWord = form.word.value;
@@ -42,10 +68,6 @@ form.onsubmit = async event => {
 
     pageButtons.hidden = false;
 
-    // Har nedanstående kod bara för att se vad som händer efter att fråga skickats via API
-    console.log(totalHits);
-    console.log(remainingHits);
-
     // Clear the inputs
     /* form.word.value = '';
     form.color.value = 'any color'; */
@@ -64,10 +86,6 @@ form.onsubmit = async event => {
         enableButton(nextBtn);
     }
 }
-
-/* function clearElement(element){
-    element.replaceChildren();
-} */
 
 function showImages(jsonAnswer) {
 
