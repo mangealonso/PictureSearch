@@ -277,26 +277,43 @@ p{
 
 }
 
-/* 
+/* Tycker att vi behöver se över om vi i gallery borde göra en div/span som samlar varje bild, tag och user
+Det blir en lite lätt löjlig template här... :) */
+
 @media (max-width: 550px) {
 
     #gallery {
         display: grid;
         grid-template:  
-        "a b"
-        "at bt"
-        "au bu"
-        "c d"
-        "ct dt"
-        "cu du"
-        "e f"
-        "et ft"
-        "eu fu"
-        "g h"
-        "gt ht"
-        "gu hu"
-        "i j"
-        "it jt"
-        "iu ju"  /1fr 1fr;
+        "a"
+        "at"
+        "au"
+        "b"
+        "bt"
+        "bu"
+        "c"
+        "ct"
+        "cu"
+        "d"
+        "dt"
+        "du"
+        "e"
+        "et"
+        "eu"
+        "f"
+        "ft"
+        "fu"
+        "g"
+        "gt"
+        "gu"
+        "h"
+        "ht"
+        "hu"
+        "i"
+        "it"
+        "iu"
+        "j"
+        "jt"
+        "ju"  ;
     }
-} */
+}
