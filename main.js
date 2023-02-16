@@ -47,8 +47,8 @@ form.onsubmit = async event => {
     console.log(remainingHits);
 
     // Clear the inputs
-    form.word.value = '';
-    form.color.value = 'any color';
+    /* form.word.value = '';
+    form.color.value = 'any color'; */
 
     showImages(json.hits);
     showTags(json.hits);
