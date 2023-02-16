@@ -167,5 +167,9 @@ previousBtn.onclick = async event => {
     if(pageNumber === 1){
         disableButton(previousBtn);
     }
+
+    if(nextBtn.disabled = true){
+        enableButton(nextBtn);
+    }
 }
 }
