@@ -14,6 +14,17 @@ let previousBtn = document.querySelector("#previousPage");
 let images = document.querySelectorAll('img');
 let usersAndTags = document.querySelectorAll('p');
 
+// window.onload = function(){
+//     if(Modernizr.svg) {
+//     $('https://pixabay.com/ .header a').html('<img src="logo_square.svg" alt="Pixabay Logo"/>');
+//     }
+    
+//     else {
+//     $('https://pixabay.com/ .header a').html('<img src="logo_square.png" alt="Pixabay Logo">');
+//     }
+    
+//     }
+
 function disableButton(button) {
     button.disabled = true;
 }
