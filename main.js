@@ -59,6 +59,10 @@ form.onsubmit = async event => {
     if (totalHits < 11) {
         disableButton(nextBtn);
     }
+
+    if(totalHits > 10 && (nextBtn.disabled = true)){
+        enableButton(nextBtn);
+    }
 }
 
 /* function clearElement(element){
