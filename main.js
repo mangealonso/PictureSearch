@@ -9,6 +9,16 @@ let pageNumber = 1;
 let url;
 let response;
 let json;
+let nextBtn = document.querySelector("#nextPage");
+let previousBtn = document.querySelector("#previousPage");
+
+function disableButton(button){
+    button.disabled = true;
+}
+
+function enableButton(button){
+    button.disabled = false;
+}
 
 form.onsubmit = async event => {
     // Prevent the default "reload page" behavior
@@ -45,6 +55,10 @@ form.onsubmit = async event => {
     showUser(json.hits);
 
     remainingHits = totalHits;
+
+    if(totalHits < 11){
+        disableButton(nextBtn);
+    }
 }
 
 /* function clearElement(element){
@@ -91,17 +105,6 @@ function showUser(jsonAnswer) {
         users[i].textContent = "taken by: " + userFromP;
        
 };
-
-function disableButton(button){
-    button.disabled = true;
-}
-
-function enableButton(button){
-    button.disabled = false;
-}
-
-let nextBtn = document.querySelector("#nextPage");
-let previousBtn = document.querySelector("#previousPage");
 
 nextBtn.onclick = async event => {
     pageNumber++
