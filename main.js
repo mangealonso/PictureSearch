@@ -11,7 +11,7 @@ let response;
 let json;
 let nextBtn = document.querySelector("#nextPage");
 let previousBtn = document.querySelector("#previousPage");
-let images = document.querySelectorAll('img');
+let images = document.querySelectorAll('.image');
 let usersAndTags = document.querySelectorAll('p');
 
 // window.onload = function(){
