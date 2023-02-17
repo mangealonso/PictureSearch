@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="An image-searching service from Linda and Magnus- All pictures are provided by Pixabay via API">
     <title>Pixabay image search</title>
     <script src="v2.js" defer></script>
     <link rel="stylesheet" href="v2.css">
 </head>
+
 <body>
-    <header><h1>Pixabay image search</h1></header>
+    <header><h1>Pixabay image search</h1>
+        <a id="logo_ref" href="https://pixabay.com/">
+            <!-- Källa: https://www.jotform.com/blog/svg-clickable-71346/ -->
+               <img id="logo" src="logo_square.svg" alt="pixabay_logo_square" onerror="this.removeAttribute('onerror');
+               this.src='logo_square.png'" />
+       </a>
+    </header>
 
     <section id="search">
         <form>
