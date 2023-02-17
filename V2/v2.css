@@ -21,9 +21,11 @@ body{
 }
 
 #colorOptions, button, input, :placeholder-shown{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
     font-style: italic;
-    padding: 5px;
+    padding: 8px;
+    font-size: 16px;
 }
 
 header{
@@ -36,11 +38,20 @@ header, main, section, #search, footer{
     padding: 10px;
 }
 
+h1 {
+    font-size: 40px;
+}
+
 #logo {
     height: 50px;
     width: 50px;
     padding-top: 5px;
    }
+
+.search {
+    margin: 4px;
+}
+
 
 .user {
     font-size: x-small;
@@ -185,6 +196,8 @@ p{
         margin-left: 90px;
         margin-right: 90px;
     }
+
+  
 }
 
 @media (max-width: 500px) {
@@ -192,5 +205,9 @@ p{
     #gallery {
     margin-left: 50px;
     margin-right: 50px;
+    }
+
+    input {
+        width: 150px;
     }
 }
