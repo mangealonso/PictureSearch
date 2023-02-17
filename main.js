@@ -1,6 +1,11 @@
-// Find the element
-let form = document.querySelector('form');
-let apiKey = '33514834-460ad1b7211981a50c737ee93';
+// Variables
+const apiKey = '33514834-460ad1b7211981a50c737ee93';
+const form = document.querySelector('form');
+const nextBtn = document.querySelector("#nextPage");
+const previousBtn = document.querySelector("#previousPage");
+const images = document.querySelectorAll('.image');
+const usersAndTags = document.querySelectorAll('p');
+
 let totalHits = 0;
 let remainingHits = 0;
 let searchWord;
@@ -9,10 +14,7 @@ let pageNumber = 1;
 let url;
 let response;
 let json;
-let nextBtn = document.querySelector("#nextPage");
-let previousBtn = document.querySelector("#previousPage");
-let images = document.querySelectorAll('.image');
-let usersAndTags = document.querySelectorAll('p');
+
 
 // window.onload = function(){
 //     if(Modernizr.svg) {
@@ -49,19 +51,14 @@ function clearUsersAndTags(){
     }
 }
 
-/* function clear(element) {
-    element.replaceChildren();
-} */
-
 form.onsubmit = async event => {
-    // Prevent the default "reload page" behavior
+    
     event.preventDefault();
 
     // Clearing any previous images, users and tags
     clearImages();
     clearUsersAndTags();
-
-    // Get the values entered by the user
+    
     searchWord = form.word.value;
     chosenColor = form.color.value;
 
@@ -133,8 +130,7 @@ function showUser(jsonAnswer) {
     for (i = 0; i < jsonAnswer.length; i++) {
         let userFromP = jsonAnswer[i].user;
         let currentUser = "#user" + i;
-        let user = document.querySelector(currentUser);
-        //users[i].setAttribute("src", userFromP);
+        let user = document.querySelector(currentUser);        
         users[i].textContent = "taken by: " + userFromP;
 
     };
@@ -142,7 +138,6 @@ function showUser(jsonAnswer) {
     nextBtn.onclick = async event => {
         pageNumber++
 
-        // Prevent the default "reload page" behavior
         event.preventDefault();
 
         url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor
@@ -176,7 +171,6 @@ function showUser(jsonAnswer) {
     previousBtn.onclick = async event => {
         pageNumber--;
 
-        // Prevent the default "reload page" behavior
         event.preventDefault();
 
         url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor
