@@ -27,6 +27,8 @@ let json;
 
 //     }
 
+
+// Functions
 function disableButton(button) {
     button.disabled = true;
 }
@@ -48,51 +50,6 @@ function clearUsersAndTags() {
         if (usersAndTags[i].textContent != '') {
             usersAndTags[i].textContent = '';
         }
-    }
-}
-
-form.onsubmit = async event => {
-
-    event.preventDefault();
-
-    // Clearing any previous images, users and tags
-    clearImages();
-    clearUsersAndTags();
-
-    searchWord = form.word.value;
-    chosenColor = form.color.value;
-
-    //let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
-
-    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor + '&image_type=photo&per_page=10&page'
-
-    if (chosenColor === "any color") {
-        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&image_type=photo&per_page=10&page';
-    }
-
-    response = await fetch(url);
-    json = await response.json();
-    totalHits = json.totalHits;
-
-    pageButtons.hidden = false;
-
-    // Clear the inputs
-    /* form.word.value = '';
-    form.color.value = 'any color'; */
-
-    showImages(json.hits);
-    showTags(json.hits);
-    showUser(json.hits);
-
-    remainingHits = totalHits;
-
-    if (totalHits < 11) {
-        disableButton(previousBtn);
-        disableButton(nextBtn);
-    }
-
-    if (totalHits > 10 && (nextBtn.disabled = true)) {
-        enableButton(nextBtn);
     }
 }
 
@@ -124,7 +81,6 @@ function showTags(jsonAnswer) {
     }
 };
 
-
 function showUser(jsonAnswer) {
     const users = document.querySelectorAll(".user");
 
@@ -133,71 +89,120 @@ function showUser(jsonAnswer) {
         let currentUser = "#user" + i;
         let user = document.querySelector(currentUser);
         users[i].textContent = "taken by: " + userFromP;
+    }
+};
 
-    };
 
-    nextBtn.onclick = async event => {
-        pageNumber++
+// Events
+form.onsubmit = async event => {
 
-        event.preventDefault();
+    event.preventDefault();
 
-        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor
-            + '&image_type=photo&per_page=10&page=' + pageNumber;
+    // Clearing any previous images, users and tags
+    clearImages();
+    clearUsersAndTags();
 
-        if (chosenColor === "any color") {
-            url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord
-                + '&image_type=photo&per_page=10&page&page=' + pageNumber;
-        }
+    searchWord = form.word.value;
+    chosenColor = form.color.value;
 
-        response = await fetch(url);
-        json = await response.json();
+    //let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
 
-        showImages(json.hits);
-        showTags(json.hits);
-        showUser(json.hits);
+    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor + '&image_type=photo&per_page=10&page'
 
-        remainingHits -= 10;
-
-        console.log(remainingHits);
-
-        if (pageNumber > 1) {
-            enableButton(previousBtn);
-        }
-
-        if (remainingHits < 10) {
-            disableButton(nextBtn);
-        }
+    if (chosenColor === "any color") {
+        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&image_type=photo&per_page=10&page';
     }
 
-    previousBtn.onclick = async event => {
-        pageNumber--;
+    response = await fetch(url);
+    json = await response.json();
+    totalHits = json.totalHits;
 
-        event.preventDefault();
+    // Clear the inputs
+    /* form.word.value = '';
+    form.color.value = 'any color'; */
 
-        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor
-            + '&image_type=photo&per_page=10&page=' + pageNumber;
+    showImages(json.hits);
+    showTags(json.hits);
+    showUser(json.hits);
 
-        if (chosenColor === "any color") {
-            url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord
-                + '&image_type=photo&per_page=10&page&page=' + pageNumber;
-        }
+    remainingHits = totalHits;
 
-        response = await fetch(url);
-        json = await response.json();
+    if (pageButtons.hidden = true) {
+        pageButtons.hidden = false;
+    }
 
-        showImages(json.hits);
-        showTags(json.hits);
-        showUser(json.hits);
+    disableButton(previousBtn);
 
-        remainingHits += 10;
-        console.log(remainingHits);
+    if (totalHits < 11) {
+        disableButton(nextBtn);
+    }
 
-        if (pageNumber === 1) {
-            disableButton(previousBtn);
-        }
+    if (totalHits > 10 && (nextBtn.disabled = true)) {
+        enableButton(nextBtn);
+    }
+}
 
-        if (nextBtn.disabled = true) {
-            enableButton(nextBtn);
-        }
+nextBtn.onclick = async event => {
+    pageNumber++
+
+    event.preventDefault();
+
+    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor
+        + '&image_type=photo&per_page=10&page=' + pageNumber;
+
+    if (chosenColor === "any color") {
+        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord
+            + '&image_type=photo&per_page=10&page&page=' + pageNumber;
+    }
+
+    response = await fetch(url);
+    json = await response.json();
+
+    showImages(json.hits);
+    showTags(json.hits);
+    showUser(json.hits);
+
+    remainingHits -= 10;
+
+    console.log(remainingHits);
+
+    if (pageNumber > 1) {
+        enableButton(previousBtn);
+    }
+
+    if (remainingHits < 10) {
+        disableButton(nextBtn);
+    }
+}
+
+previousBtn.onclick = async event => {
+    pageNumber--;
+
+    event.preventDefault();
+
+    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor
+        + '&image_type=photo&per_page=10&page=' + pageNumber;
+
+    if (chosenColor === "any color") {
+        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord
+            + '&image_type=photo&per_page=10&page&page=' + pageNumber;
+    }
+
+    response = await fetch(url);
+    json = await response.json();
+
+    showImages(json.hits);
+    showTags(json.hits);
+    showUser(json.hits);
+
+    remainingHits += 10;
+    console.log(remainingHits);
+
+    if (pageNumber === 1) {
+        disableButton(previousBtn);
+    }
+
+    if (nextBtn.disabled = true) {
+        enableButton(nextBtn);
     }
 }
