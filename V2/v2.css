@@ -100,7 +100,7 @@ header{
 
 img{
     width: 100%;
-    height: 300px;
+    height: 275px;
     object-fit: cover;
 }
 
@@ -182,7 +182,15 @@ p{
         "i"
         "j";
 
-        margin-left: 100px;
-        margin-right: 100px;
+        margin-left: 90px;
+        margin-right: 90px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    #gallery {
+    margin-left: 50px;
+    margin-right: 50px;
     }
 }
