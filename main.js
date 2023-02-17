@@ -162,8 +162,6 @@ nextBtn.onclick = async event => {
 
     remainingHits -= 10;
 
-    console.log(remainingHits);
-
     if (pageNumber > 1) {
         enableButton(previousBtn);
     }
@@ -192,7 +190,6 @@ previousBtn.onclick = async event => {
     showUser(json.hits);
 
     remainingHits += 10;
-    console.log(remainingHits);
 
     if (pageNumber === 1) {
         disableButton(previousBtn);
