@@ -107,10 +107,10 @@ form.onsubmit = async event => {
 
     //let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
 
-    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor + '&image_type=photo&per_page=10&page'
+    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor + '&per_page=10&page'
 
     if (chosenColor === "any color") {
-        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&image_type=photo&per_page=10&page';
+        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&per_page=10&page';
     }
 
     response = await fetch(url);
@@ -130,7 +130,7 @@ form.onsubmit = async event => {
     if (pageButtons.hidden = true) {
         pageButtons.hidden = false;
     }
-
+    
     disableButton(previousBtn);
 
     if (totalHits < 11) {
@@ -147,12 +147,10 @@ nextBtn.onclick = async event => {
 
     event.preventDefault();
 
-    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor
-        + '&image_type=photo&per_page=10&page=' + pageNumber;
+    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor + '&per_page=10&page=' + pageNumber;
 
     if (chosenColor === "any color") {
-        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord
-            + '&image_type=photo&per_page=10&page&page=' + pageNumber;
+        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&per_page=10&page&page=' + pageNumber;
     }
 
     response = await fetch(url);
@@ -180,12 +178,10 @@ previousBtn.onclick = async event => {
 
     event.preventDefault();
 
-    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor
-        + '&image_type=photo&per_page=10&page=' + pageNumber;
+    url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor + '&per_page=10&page=' + pageNumber;
 
     if (chosenColor === "any color") {
-        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord
-            + '&image_type=photo&per_page=10&page&page=' + pageNumber;
+        url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&per_page=10&page&page=' + pageNumber;
     }
 
     response = await fetch(url);
