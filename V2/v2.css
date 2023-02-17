@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+body{
+    background-image: url("photographer.jpg");  
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#colorOptions, button, input, :placeholder-shown{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    padding: 5px;
+}
+
+header, main, section, #search, footer{
+    margin: 10px;
+    padding: 10px;
+}
+
+header{
+    color: white;
+    text-align: center;
+}
+
+header, section, #search, footer{
+    margin: 10px;
+    padding: 10px;
+}
+
+body{
+    display: grid;
+    grid-template: 
+    "a"
+    "b"
+    "c"
+    "d";
+}
+
+header{
+    display: grid;
+    grid-area: a;
+}
+
+#search{
+    display: grid;    
+    grid-area: b;
+    grid-template-rows: 25px;
+    justify-items: center; 
+}
+
+#gallery{
+    display: grid;    
+    grid-area: c;
+    grid-template-rows: 500px;
+    justify-items: center;
+
+    grid-template:
+    "a b c d"
+    "e f g h"
+    "i j k l" / 1fr 1fr 1fr 1fr;
+}
+
+#div0{ grid-area: a; }
+#div1{ grid-area: b; }
+#div2{ grid-area: c; }
+#div3{ grid-area: d; }
+#div4{ grid-area: e; }
+#div5{ grid-area: f; }
+#div6{ grid-area: g; }
+#div7{ grid-area: h; }
+#div8{ grid-area: j; }
+#div9{ grid-area: k; }
+
+#footer{
+    display: grid;
+    grid-area: d;
+    justify-items: center;
+}
+
+img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+div{
+    padding: 10px;
+}
+
+p{
+    color: white;
+    text-align: center;
+}
+
+@media (max-width: 1000px) {
+    #gallery{
+        display:grid;
+        grid-template: 
+        "a b c"
+        "d e f"
+        "g h i"
+        "j k" /1fr 1fr 1fr;;
+    }
+}
+
+@media (max-width: 800px){
+    #gallery{
+        display:grid;
+        grid-template: 
+        "a b"
+        "c d"
+        "e f"
+        "g h"
+        "i j"
+        "k" / 1fr 1fr;
+    }
+}
+
+@media (max-width: 400px){
+    #gallery{
+        display:grid;
+        grid-template: 
+        "a"
+        "b"
+        "c"
+        "d"
+        "e"
+        "f"
+        "g"
+        "h"
+        "i"
+        "j"
+        "k";
+    }
+}

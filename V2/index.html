@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixabay image search</title>
+    <script src="v2.js" defer></script>
+    <link rel="stylesheet" href="v2.css">
+</head>
+<body>
+    <header><h1>Pixabay image search</h1></header>
+
+    <section id="search">
+        <form>
+            <input type="text" name="word" placeholder="Search for photos">
+            <select id="colorOptions" name="color">
+                <option>any color</option>
+                <option>green</option>
+                <option>red</option>
+                <option>blue</option>
+                <option>yellow</option>
+                <option>pink</option>
+                <option>brown</option>
+                <option>black</option>
+                <option>white</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="gallery">
+        <div id="div0">
+            <img class="image" id="image0"></img>
+            <p class="tag" id="tag0"></p>
+            <p class="user" id="user0"></p>
+        </div>
+        <div id="div1">
+            <img class="image" id="image1"></img>
+            <p class="tag" id="tag1"></p>
+            <p class="user" id="user1"></p>
+        </div>
+        <div id="div2">
+            <img class="image" id="image2"></img>
+            <p class="tag" id="tag2"></p>
+            <p class="user" id="user2"></p>
+        </div>
+        <div id="div3">
+            <img class="image" id="image3"></img>
+            <p class="tag" id="tag3"></p>
+            <p class="user" id="user3"></p>
+        </div>
+        <div id="div4">
+            <img class="image" id="image4"></img>
+            <p class="tag" id="tag4"></p>
+            <p class="user" id="user4"></p>
+        </div>
+        <div id="div5">
+            <img class="image" id="image5"></img>
+            <p class="tag" id="tag5"></p>
+            <p class="user" id="user5"></p>
+        </div>
+        <div id="div6">
+            <img class="image" id="image6"></img>
+            <p class="tag" id="tag6"></p>
+            <p class="user" id="user6"></p>
+        </div>
+        <div id="div7">
+            <img class="image" id="image7"></img>
+            <p class="tag" id="tag7"></p>
+            <p class="user" id="user7"></p>
+        </div>
+        <div id="div8">
+            <img class="image" id="image8"></img>
+            <p class="tag" id="tag8"></p>
+            <p class="user" id="user8"></p>
+        </div>
+        <div id="div9">
+            <img class="image" id="image9"></img>
+            <p class="tag" id="tag9"></p>
+            <p class="user" id="user9"></p>
+        </div>
+    </section>
+
+    <section id="footer">
+        <form>
+            <div id="pageButtons" hidden>
+                <button id="previousPage" type="button" disabled>Previous Page</button>
+                <button id="nextPage" type="button">Next Page</button>
+            </div>
+        </form>
+    </section>
+    
+</body>
+</html>
