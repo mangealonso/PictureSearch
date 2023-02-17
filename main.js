@@ -20,11 +20,11 @@ let json;
 //     if(Modernizr.svg) {
 //     $('https://pixabay.com/ .header a').html('<img src="logo_square.svg" alt="Pixabay Logo"/>');
 //     }
-    
+
 //     else {
 //     $('https://pixabay.com/ .header a').html('<img src="logo_square.png" alt="Pixabay Logo">');
 //     }
-    
+
 //     }
 
 function disableButton(button) {
@@ -35,30 +35,30 @@ function enableButton(button) {
     button.disabled = false;
 }
 
-function clearImages(){
-    for (let i = 0; i <images.length; i++){
-        if (images[i].getAttribute('src') != ''){
+function clearImages() {
+    for (let i = 0; i < images.length; i++) {
+        if (images[i].getAttribute('src') != '') {
             images[i].src = '';
         }
     }
 }
 
-function clearUsersAndTags(){
-    for (let i = 0; i <usersAndTags.length; i++){
-        if (usersAndTags[i].textContent != ''){
+function clearUsersAndTags() {
+    for (let i = 0; i < usersAndTags.length; i++) {
+        if (usersAndTags[i].textContent != '') {
             usersAndTags[i].textContent = '';
         }
     }
 }
 
 form.onsubmit = async event => {
-    
+
     event.preventDefault();
 
     // Clearing any previous images, users and tags
     clearImages();
     clearUsersAndTags();
-    
+
     searchWord = form.word.value;
     chosenColor = form.color.value;
 
@@ -87,10 +87,11 @@ form.onsubmit = async event => {
     remainingHits = totalHits;
 
     if (totalHits < 11) {
+        disableButton(previousBtn);
         disableButton(nextBtn);
     }
 
-    if(totalHits > 10 && (nextBtn.disabled = true)){
+    if (totalHits > 10 && (nextBtn.disabled = true)) {
         enableButton(nextBtn);
     }
 }
@@ -130,7 +131,7 @@ function showUser(jsonAnswer) {
     for (i = 0; i < jsonAnswer.length; i++) {
         let userFromP = jsonAnswer[i].user;
         let currentUser = "#user" + i;
-        let user = document.querySelector(currentUser);        
+        let user = document.querySelector(currentUser);
         users[i].textContent = "taken by: " + userFromP;
 
     };
