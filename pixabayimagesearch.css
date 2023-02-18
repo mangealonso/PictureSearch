@@ -5,8 +5,9 @@
 }
 
 html{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
+    color: white;
 }
 
 body{
@@ -19,14 +20,20 @@ body{
 }
 
 #colorOptions, button, input, :placeholder-shown{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
     font-style: italic;
-    padding: 5px;
+    padding: 8px;
+    font-size: 16px;
 }
 
 header, main, section, #search, footer{
     margin: 10px;
     padding: 10px;
+}
+
+h1 {
+    font-size: 40px;
 }
 
 #logo {
@@ -74,8 +81,7 @@ header{
 
 h1 {grid-area: bb;}
 a { 
-    grid-area: cc; 
-    /* align-self: center; */
+    grid-area: cc;
     padding-bottom: 3px;
 }
 
@@ -230,16 +236,6 @@ p{
         "i j"
         "it jt"
         "iu ju"  /1fr 1fr;
-        
-        
-        /* "i j"
-        "it jt"
-        "iu ju" 
-        "k l"
-        "kt lt"
-        "ku lu"/1fr 1fr; */
-        /* grid-gap: 0rem 1.5rem; */
-        
     }
 
 #image0{ grid-area: a; }
