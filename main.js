@@ -26,6 +26,7 @@ function enableButton(button) {
 }
 
 function clearImages() {
+    // Källa: https://dev.to/santiagocodes/replacing-empty-img-src-attributes-using-javascript-2pc8
     for (let i = 0; i < images.length; i++) {
         if (images[i].getAttribute('src') != '') {
             images[i].src = '';
@@ -87,7 +88,7 @@ form.onsubmit = async event => {
     clearUsersAndTags();
 
     searchWord = form.word.value;
-    chosenColor = form.color.value;    
+    chosenColor = form.color.value;
 
     url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor + '&per_page=10&page'
 
@@ -108,7 +109,7 @@ form.onsubmit = async event => {
     if (pageButtons.hidden = true) {
         pageButtons.hidden = false;
     }
-    
+
     disableButton(previousBtn);
 
     if (totalHits < 11) {
