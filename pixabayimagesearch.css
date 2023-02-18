@@ -263,7 +263,7 @@ p {
     grid-area: ku;
 }
 
-#footer {
+footer {
     display: grid;
     justify-items: center;
 }
