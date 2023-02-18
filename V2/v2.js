@@ -42,7 +42,7 @@ function clearUsersAndTags() {
 }
 
 function showImages(jsonAnswer) {
-    
+
     //const pics = document.querySelectorAll(".image");
 
     for (i = 0; i < jsonAnswer.length; i++) {
@@ -51,7 +51,7 @@ function showImages(jsonAnswer) {
         let currentImg = "#image" + i;
         let pic = document.querySelector(currentImg);
 
-       images[i].setAttribute("src", imageFromPUrl);
+        images[i].setAttribute("src", imageFromPUrl);
     }
 };
 
@@ -108,7 +108,7 @@ form.onsubmit = async event => {
     if (pageButtons.hidden = true) {
         pageButtons.hidden = false;
     }
-    
+
     disableButton(previousBtn);
 
     if (totalHits < 11) {
