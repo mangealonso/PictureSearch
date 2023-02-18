@@ -552,9 +552,6 @@ p {
 
 }
 
-/* Tycker att vi behöver se över om vi i gallery borde göra en div/span som samlar varje bild, tag och user
-Det blir en lite lätt löjlig template här... :) */
-
 @media (max-width: 550px) {
 
     #gallery {

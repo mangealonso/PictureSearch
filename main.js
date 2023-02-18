@@ -44,8 +44,6 @@ function clearUsersAndTags() {
 
 function showImages(jsonAnswer) {
 
-    //const pics = document.querySelectorAll(".image");
-
     for (i = 0; i < jsonAnswer.length; i++) {
 
         let imageFromPUrl = jsonAnswer[i].webformatURL;
