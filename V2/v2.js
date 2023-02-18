@@ -3,7 +3,7 @@ const apiKey = '33514834-460ad1b7211981a50c737ee93';
 const form = document.querySelector('form');
 const nextBtn = document.querySelector("#nextPage");
 const previousBtn = document.querySelector("#previousPage");
-const images = document.querySelectorAll('image');
+const images = document.querySelectorAll('.image');
 const usersAndTags = document.querySelectorAll('p');
 
 let totalHits = 0;
@@ -14,6 +14,7 @@ let pageNumber = 1;
 let url;
 let response;
 let json;
+
 
 // Functions
 function disableButton(button) {
@@ -41,9 +42,8 @@ function clearUsersAndTags() {
 }
 
 function showImages(jsonAnswer) {
-
-    // https://dev.to/satvik/how-to-fetch-images-from-and-api-5h8h - lite källa, som jag ändå fick ändra om allt efteråt.
-    const pics = document.querySelectorAll(".image");
+    
+    //const pics = document.querySelectorAll(".image");
 
     for (i = 0; i < jsonAnswer.length; i++) {
 
@@ -51,7 +51,7 @@ function showImages(jsonAnswer) {
         let currentImg = "#image" + i;
         let pic = document.querySelector(currentImg);
 
-        pics[i].setAttribute("src", imageFromPUrl);
+       images[i].setAttribute("src", imageFromPUrl);
     }
 };
 
