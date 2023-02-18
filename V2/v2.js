@@ -15,19 +15,6 @@ let url;
 let response;
 let json;
 
-
-// window.onload = function(){
-//     if(Modernizr.svg) {
-//     $('https://pixabay.com/ .header a').html('<img src="logo_square.svg" alt="Pixabay Logo"/>');
-//     }
-
-//     else {
-//     $('https://pixabay.com/ .header a').html('<img src="logo_square.png" alt="Pixabay Logo">');
-//     }
-
-//     }
-
-
 // Functions
 function disableButton(button) {
     button.disabled = true;
@@ -61,12 +48,10 @@ function showImages(jsonAnswer) {
     for (i = 0; i < jsonAnswer.length; i++) {
 
         let imageFromPUrl = jsonAnswer[i].webformatURL;
-        //  let imageEl = document.createElement("img"); //ev ta bort
-        //  imageEl.setAttribute("src", imageFromPUrl);  //ev tabort
         let currentImg = "#image" + i;
         let pic = document.querySelector(currentImg);
 
-        pics[i].setAttribute("src", imageFromPUrl); //tror att det är den här som gjorde att det till slut funkade.
+        pics[i].setAttribute("src", imageFromPUrl);
     }
 };
 
@@ -98,14 +83,11 @@ form.onsubmit = async event => {
 
     event.preventDefault();
 
-    // Clearing any previous images, users and tags
     clearImages();
     clearUsersAndTags();
 
     searchWord = form.word.value;
     chosenColor = form.color.value;
-
-    //let url = 'https://pixabay.com/api/?key=33514834-460ad1b7211981a50c737ee93&q='+ chosenColor +'+'+ searchWord +' &image_type=photo&per_page=200';
 
     url = 'https://pixabay.com/api/?key=' + apiKey + '&q=' + searchWord + '&colors=' + chosenColor + '&per_page=10&page'
 
@@ -116,10 +98,6 @@ form.onsubmit = async event => {
     response = await fetch(url);
     json = await response.json();
     totalHits = json.totalHits;
-
-    // Clear the inputs
-    /* form.word.value = '';
-    form.color.value = 'any color'; */
 
     showImages(json.hits);
     showTags(json.hits);
