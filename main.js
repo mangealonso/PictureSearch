@@ -10,7 +10,7 @@ let totalHits = 0;
 let remainingHits = 0;
 let searchWord;
 let chosenColor;
-let pageNumber = 1;
+let pageNumber;
 let url;
 let response;
 let json;
@@ -101,6 +101,8 @@ form.onsubmit = async event => {
     showImages(json.hits);
     showTags(json.hits);
     showUser(json.hits);
+
+    pageNumber = 1;
 
     remainingHits = totalHits;
 
