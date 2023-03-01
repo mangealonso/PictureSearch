@@ -145,7 +145,7 @@ nextBtn.onclick = async event => {
         enableButton(previousBtn);
     }
 
-    if (remainingHits < 10) {
+    if (remainingHits <= 10) {
         disableButton(nextBtn);
     }
 }
