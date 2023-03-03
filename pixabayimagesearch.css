@@ -10,6 +10,10 @@ html {
     color: white;
 }
 
+div {
+    padding: 8px;
+}
+
 body {
     background-image: url("photographer.jpg");
     background-size: cover;
